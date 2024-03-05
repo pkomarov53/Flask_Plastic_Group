@@ -1,0 +1,20 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.img-height {
+    height: 445px;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.img-height.zoomed {
+    transform: scale(1.55); /* Увеличенный размер при клике */
+}
+
+.custom-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 110px; /* Регулируйте это значение в зависимости от вашего дизайна */
+    z-index: 1000; /* Устанавливайте z-index по вашему усмотрению */
+}

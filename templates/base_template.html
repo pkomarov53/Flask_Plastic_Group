@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+{% block title -%}
+    <title>{{ title }}</title>
+{% endblock %}
+
+{% block index_imports -%}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/index_stylesheet.css') }}" rel="stylesheet">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="{{ url_for('static', filename='js/index_scripts.js') }}"></script>
+{% endblock %}
+
+</head>
+
+<body>
+
+{% block content -%}
+    {%- block footer -%}
+	<!--- Подвал сайта --->
+	<div class="container bg-white border-top mt-0">
+		<footer class="d-flex flex-wrap justify-content-between mt-5 mb-3" id="contacts-section">
+			<div class="col-md-4">
+				<p class="fs-4 text-body-secondary mb-0">ЮГ-ТАРА</p>
+				<p class="text-body-secondary mb-0">&copy; 2009–2024</p>
+			</div>
+			<ul class="nav col-md-2 mb-md-1">
+				<li class="nav-item">
+					<p class="nav-link px-2 text-body-secondary mb-0">uk-tara@yandex.ru</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link px-2 text-body-secondary mb-0">141009, <br> Московская область, <br>Мытищи, ул. Колонцова 5</p>
+				</li>
+			</ul>
+			<ul class="nav col-md-2 mb-md-5">
+				<li class="nav-item">
+					<p class="nav-link px-2 text-body-secondary mb-1">8 (495) 588-79-81</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link px-2 text-body-secondary mb-1">8 (903) 176-70-22</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link px-2 text-body-secondary mb-1">8 (903) 287-18-41</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link px-2 text-body-secondary mb-1">8 (903) 178-16-93</p>
+				</li>
+			</ul>
+			<ul class="nav col-md-2 mb-md-5">
+				<li class="nav-item">
+					<p class="nav-link px-1 text-body-secondary fs-6 mb-1">ОГРН 1095029000175</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link px-1 text-body-secondary text-center fs-6 mb-1">ИНН 5029122650</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link px-1 text-body-secondary text-center fs-6 mb-1">КПП 502901001</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link px-1 text-body-secondary fs-6 mb-1">ОКПО 88883256</p>
+				</li>
+			</ul>
+		</footer>
+	</div>
+
+    {% endblock -%}
+
+{% endblock -%}
+
+</body>
+</html>

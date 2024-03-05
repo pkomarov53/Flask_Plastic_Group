@@ -1,0 +1,154 @@
+{% extends 'base_template.html' %}
+
+{% block index_imports %}
+	{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="container bg-white sticky-top md-1 mb-3 rounded border-bottom shadow">
+	<header class="d-flex flex-wrap justify-content-around mb-1 bg-white text-white">
+		<a href="" class="d-flex align-items-center ms-5 link-body-emphasis text-decoration-none ">
+			<p class="fs-1 m-0 me-5 ">ЮГ-ТАРА</p>
+		</a>
+		<ul class="nav d-flex flex-wrap justify-content-evenly px-5 mb-1">
+			<li class="nav-item "><a id="companyButton" href="url_for('user_register')" class="nav-link my-3 text-black fs-5">Компания</a></li>
+			<li class="nav-item"><a id="tapeButton" href="" class="nav-link my-3 text-black fs-5">Скотч</a></li>
+			<li class="nav-item"><a id="designsButton" href="#" class="nav-link my-3 text-black fs-5">Этикетка</a></li>
+			<li class="nav-item"><a id="contactsButton" href="#" class="nav-link my-3 text-black fs-5">Контакты</a></li>
+		</ul>
+	</header>
+</div>
+<div id="company-section" class="container p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary bg-opacity-50 shadow">
+	<div class="row">
+		<div class="col-lg-6 px-0">
+			<p class="fs-3 fw-bold">ООО «ЮГ-ТАРА»</p>
+			<p class="lead my-3 fs-5 lh-base text-wrap">Длительное время занимаясь импортом без посредников, мы гарантируем Вам низкие цены и хорошее качество продукции</p>
+			<p class="lead my-3 fs-5 lh-base text-wrap">Наша компания более 10 лет специализируется на поставках скотча для запечатывания полиэтиленовых пакетов типа ОРР или РР. Компания является одним из крупнейших импортеров двустороннего скотча производства OKER и QICHANG</p>
+			<p class="lead my-3 fs-5 lh-base text-wrap">В разделе «Скотч» Вы можете ознакомиться с предлагаемым ассортиментом скотча и его техническими характеристиками</p>
+			<p class="lead my-3 fs-5 lh-base text-wrap">ООО «ЮГ-ТАРА» предлагает Вашему вниманию термоусадочную этикетку для украшения пасхальных яиц. Этикетка изготовлена с использованием ротогравюрной печати, что обеспечивает яркость красок и четкость линий. Дизайны пасхальной этикетки представлены в разделе «Этикетка»</p>
+		</div>
+		<div class="d-flex col-lg-6 fluid"> <img src="{{ url_for('static', filename='images/container/about_company.jpg') }}" class="img-fluid rounded shadow" alt="bg3"> </div>
+	</div>
+</div>
+<div class="container p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary bg-opacity-50 shadow">
+	<div class="row">
+		<!-- Sticky Оглавление слева -->
+		<div class="col-md-3">
+			<div class="custom-sticky bg-white bg-opacity-75 border border-2 rounded shadow-sm">
+				<ul class="nav flex-column">
+					<li class="nav-item font-monospace text-decoration-underline"><a class="nav-link fs-4 text-dark" href="#section1">Клапанный скотч</a></li>
+					<li class="nav-item font-monospace"><a class="nav-link text-dark fs-5" href="#section1">LP-A 100</a></li>
+					<li class="nav-item font-monospace"><a class="nav-link text-dark fs-5" href="#section2">LP-A 150</a></li>
+					<li class="nav-item font-monospace"><a class="nav-link text-dark fs-5" href="#section3">LP-A 180</a></li>
+					<li class="nav-item font-monospace text-decoration-underline"><a class="nav-link fs-4 text-dark" href="#section1">Пермаментный скотч</a></li>
+					<li class="nav-item font-monospace"><a class="nav-link text-dark fs-5" href="#section4 text-dark">HC-12</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Блоки текста справа -->
+		<div class="col-md-9 ">
+			<div class="section ">
+				<h3 class="fw-bold">Клапанный скотч LP-A100 (PL .PR .WL. WR.) - АНАЛОГ QC103</h3>
+				<p><strong>Применение:</strong></p>
+				<ul class="list">
+					<li>для запечатывания полиэтиленовых пакетов типа OPP или РР.</li>
+					<li>многократного использования (без клеевого остатка).</li>
+					<li>не реагирует химически с содержанием пакетов.</li>
+				</ul>
+				<p><strong>Технические данные:</strong></p>
+				<ul class="list">
+					<li>Основной материал: ПЭ пленка с силиконовым покрытием: HDPE 9mm</li>
+					<li>ширина покрытия клеевого слоя: PET 4.5mm</li>
+					<li>ширина клеевого слоя на стороне A/B: 3mm/4.5mm</li>
+					<li>общая толщина: 63-68 мкм</li>
+					<li>адгезия: 13g/mm</li>
+					<li>адгезив: акрил</li>
+					<li>цвет пленки: прозрачный или с печатью</li>
+					<li>намотка: правая или левая</li>
+					<li>упаковка: 20 рулонов по 1000м</li>
+					<li>хранение при температуре от 0 C до +20 С в сухом месте.</li>
+				</ul>
+			</div>
+			<div class="section">
+				<h3 class="fw-bold">Клапанный скотч LP-A150 (PL .PR .WL. WR.) - АНАЛОГ QC134</h3>
+				<p><strong>Применение:</strong></p>
+				<ul class="list">
+					<li>для запечатывания полиэтиленовых пакетов типа OPP или РР ,PE (материал).</li>
+					<li>многократного использования (без клеевого остатка).</li>
+					<li>не реагирует химически с содержанием пакетов.</li>
+				</ul>
+				<p><strong>Технические данные:</strong></p>
+				<ul class="list">
+					<li>Основной материал: ПЭ пленка с силиконовым покрытием: HDPE 13 мм</li>
+					<li>ширина покрытия клеевого слоя: PET 6mm</li>
+					<li>ширина клеевого слоя на стороне A/B: 4mm/6mm</li>
+					<li>общая толщина: 73 мкм</li>
+					<li>адгезия: 17g/mm</li>
+					<li>адгезив: акрил</li>
+					<li>цвет пленки: прозрачный или с печатью</li>
+					<li>намотка: правая или левая</li>
+					<li>упаковка: 20 рулонов по 1000м</li>
+					<li>хранение при температуре от 0 C до +20 С в сухом месте.</li>
+				</ul>
+			</div>
+			<div class="section">
+				<h3 class="fw-bold">Клапанный скотч LP-A180 (PL .PR .WL .WR.)</h3>
+				<p><strong>Применение:</strong></p>
+				<ul class="list">
+					<li>для запечатывания полиэтиленовых пакетов типа OPP или РР ,PE (материал).</li>
+					<li>многократного использования (без клеевого остатка).</li>
+					<li>не реагирует химически с содержанием пакетов.</li>
+				</ul>
+				<p><strong>Технические данные:</strong></p>
+				<ul class="list">
+					<li>Основной материал: ПЭ пленка с силиконовым покрытием: HDPE 17,5 mm</li>
+					<li>ширина покрытия клеевого слоя: PET 10mm</li>
+					<li>ширина клеевого слоя на стороне A/B: 7mm/10mm</li>
+					<li>общая толщина: 73 мкм</li>
+					<li>адгезия: 17g/mm</li>
+					<li>адгезив: акрил</li>
+					<li>цвет пленки: прозрачный или с печатью</li>
+					<li>намотка: правая или левая</li>
+					<li>упаковка: 10 рулонов по 1000м</li>
+					<li>хранение при температуре от 0 C до +20 С в сухом месте.</li>
+				</ul>
+			</div>
+			<div class="section">
+				<h3 class="fw-bold">Перманентный скотч HС-12 - АНАЛОГ QC120</h3>
+				<p><strong>Применение:</strong></p>
+				<ul class="list">
+					<li>Неядовитый, безопасный, холодоустойчивый. Не хранить/использовать при высокой температуре.</li>
+					<li>Одноразового использования, применяется для запечатывания конфиденциальных пакетов.</li>
+				</ul>
+				<p><strong>Технические данные:</strong></p>
+				<ul class="list">
+					<li>Основной материал: ПЭ пленка с силиконовым покрытием: PAPE 12 mm</li>
+					<li>ширина покрытия клеевого слоя: PET 10mm/ 6 mm</li>
+					<li>общая толщина: 200 мкм</li>
+					<li>адгезив: акрил</li>
+					<li>цвет пленки: белый</li>
+					<li>упаковка: 10 рулонов по 500м</li>
+					<li>хранение при температуре от 0 C до +20 С в сухом месте.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<p class="fs-3 px-0">Дизайны термоусадочной пасхальной этикетки</p>
+	<div class="row row-cols-7 mb-3 align-items-center" id="designs-section">
+		<div class="col"> <img src="{{ url_for('static', filename='images/designs/design-1.png') }}" class="img-fluid img-height rounded shadow px-0" alt="design-1"> </div>
+		<div class="col"> <img src="{{ url_for('static', filename='images/designs/design-2.png') }}" class="img-fluid img-height rounded shadow px-0" alt="design-2"> </div>
+		<div class="col"> <img src="{{ url_for('static', filename='images/designs/design-3.png') }}" class="img-fluid img-height rounded shadow px-0" alt="design-3"> </div>
+		<div class="col"> <img src="{{ url_for('static', filename='images/designs/design-4.png') }}" class="img-fluid img-height rounded shadow px-0" alt="design-4"> </div>
+		<div class="col"> <img src="{{ url_for('static', filename='images/designs/design-5.png') }}" class="img-fluid img-height rounded shadow px-0" alt="design-5"> </div>
+		<div class="col"> <img src="{{ url_for('static', filename='images/designs/design-6.png') }}" class="img-fluid img-height rounded" alt="design-6"> </div>
+		<div class="col"> <img src="{{ url_for('static', filename='images/designs/design-7.png') }}" class="img-fluid img-height rounded" alt="design-7"> </div>
+	</div>
+</div>
+
+	{% block footer %}
+		{{ super() }}
+	{% endblock %}
+
+{% endblock %}
