@@ -1,0 +1,41 @@
+/* Основные стили для контейнера */
+body, html {
+  height: 100%;
+  margin: 0;
+
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Nunito', sans-serif;
+}
+
+.form-signin {
+  max-width: 400px; /* Желаемая максимальная ширина формы */
+  width: 100%; /* Чтобы форма занимала всю доступную ширину, но не больше максимальной */
+  padding: 20px; /* Добавим отступы для красоты */
+  box-sizing: border-box; /* Чтобы отступы не увеличивали общую ширину формы */
+  background-color: #ffffff; /* Цвет фона формы */
+}
+
+/* Медиа-запрос для устройств с шириной экрана до 576px (мобильные устройства) */
+@media (max-width: 576px) {
+  .form-signin {
+    padding: 10px; /* Уменьшаем отступы на мобильных устройствах */
+  }
+
+  .form-floating label {
+    font-size: 14px; /* Уменьшаем размер шрифта меток на мобильных устройствах */
+  }
+}
+
+/* Медиа-запрос для устройств с шириной экрана от 768px до 1024px (планшеты) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form-signin {
+    max-width: 600px; /* Увеличиваем максимальную ширину формы для планшетов */
+  }
+}
+

@@ -5,9 +5,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 
 
+@app.route('/index')
 @app.route('/')
 def index():
     return render_template('index.html', title='ЮГ-Тара')
+
+
+@app.route('/auth')
+def user_auth():
+    return render_template('user_login.html', title='Войти')
 
 
 if __name__ == '__main__':
