@@ -22,10 +22,17 @@
         {{ block.super }}
         <link href="{{ url_for('static', filename='css/auth_stylesheet.css') }}" rel="stylesheet">
     {%- endblock %}
+
+	{%- block register_imports %}
+        {{ block.super }}
+        <link href="{{ url_for('static', filename='css/register_stylesheet.css') }}" rel="stylesheet">
+    {%- endblock %}
 {% endblock %}
 </head>
 <body>
 {%- block content -%}
+	{%- block transparent_container -%}
+	{%-endblock -%}
     {%- block footer -%}
 	<!--- Подвал сайта --->
 	<div class="container bg-white border-top mt-0">
