@@ -1,6 +1,16 @@
 body {
     font-family: 'Nunito', sans-serif;
+    background-image: url("/static/images/container/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
 }
+
+.bg-image {
+
+}
+
 
 .img-height {
     height: 445px;

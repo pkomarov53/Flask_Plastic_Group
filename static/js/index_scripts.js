@@ -52,6 +52,76 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+	let companyButton = document.getElementById('tape_100_LPA');
+	let companySection = document.getElementById('tape_type_1_section');
+	companyButton.addEventListener('click', function(event) {
+		event.preventDefault();
+		let yOffset = companySection.getBoundingClientRect().top - 100;
+		window.scrollBy({
+			top: yOffset,
+			left: 0,
+			behavior: 'smooth'
+		});
+	});
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+	let companyButton = document.getElementById('tape_150_LPA');
+	let companySection = document.getElementById('tape_LP-A150');
+	companyButton.addEventListener('click', function(event) {
+		event.preventDefault();
+		let yOffset = companySection.getBoundingClientRect().top - 100;
+		window.scrollBy({
+			top: yOffset,
+			left: 0,
+			behavior: 'smooth'
+		});
+	});
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+	let companyButton = document.getElementById('tape_180_LPA');
+	let companySection = document.getElementById('tape_LP-A180');
+	companyButton.addEventListener('click', function(event) {
+		event.preventDefault();
+		let yOffset = companySection.getBoundingClientRect().top - 100;
+		window.scrollBy({
+			top: yOffset,
+			left: 0,
+			behavior: 'smooth'
+		});
+	});
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+	let companyButton = document.getElementById('tape_type_2');
+	let companySection = document.getElementById('tape_type_1_section');
+	companyButton.addEventListener('click', function(event) {
+		event.preventDefault();
+		let yOffset = companySection.getBoundingClientRect().top - 100;
+		window.scrollBy({
+			top: yOffset,
+			left: 0,
+			behavior: 'smooth'
+		});
+	});
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+	let companyButton = document.getElementById('tape_12_HC');
+	let companySection = document.getElementById('tape_type_2_section');
+	companyButton.addEventListener('click', function(event) {
+		event.preventDefault();
+		let yOffset = companySection.getBoundingClientRect().top - 100;
+		window.scrollBy({
+			top: yOffset,
+			left: 0,
+			behavior: 'smooth'
+		});
+	});
+});
+
+document.addEventListener('DOMContentLoaded', function() {
 	let companyButton = document.getElementById('tape_type_2');
 	let companySection = document.getElementById('tape_type_2_section');
 	companyButton.addEventListener('click', function(event) {
