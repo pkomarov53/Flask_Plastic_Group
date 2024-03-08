@@ -2,6 +2,7 @@
 
 <!--- Импорты сайта --->
 {% block imports %}
+
     {%- block common_imports %}
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
@@ -14,6 +15,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{{ url_for('static', filename='js/index_scripts.js') }}"></script>
     {%- endblock %}
+
 {% endblock %}
 
 <!--- Контент сайта --->
@@ -26,10 +28,10 @@
 				<p class="montserrat-alternates-extrabold fs-1 m-0 me-5">ЮГ-ТАРА</p>
 			</a>
 			<ul class="nav d-flex flex-wrap justify-content-evenly px-5 mb-1">
-				<li class="nav-item"><a id="companyButton" href="url_for('user_register')" class="montserrat-alternates-medium nav-link my-3 text-black fs-5">Компания</a></li>
+				<li class="nav-item"><a id="companyButton" href="" class="montserrat-alternates-medium nav-link my-3 text-black fs-5">Компания</a></li>
 				<li class="nav-item"><a id="tapeButton" href="" class="montserrat-alternates-medium nav-link my-3 text-black fs-5">Скотч</a></li>
-				<li class="nav-item"><a id="designsButton" href="#" class="montserrat-alternates-medium nav-link my-3 text-black fs-5">Этикетка</a></li>
-				<li class="nav-item"><a id="contactsButton" href="#" class="montserrat-alternates-medium nav-link my-3 text-black fs-5">Контакты</a></li>
+				<li class="nav-item"><a id="designsButton" href="" class="montserrat-alternates-medium nav-link my-3 text-black fs-5">Этикетка</a></li>
+				<li class="nav-item"><a id="contactsButton" href="" class="montserrat-alternates-medium nav-link my-3 text-black fs-5">Контакты</a></li>
 			</ul>
 		</header>
 	</div>
@@ -42,8 +44,6 @@
 			<p class="fs-2">Один из крупнейших импортеров двустороннего скотча производства OKER и QICHANG</p>
 		</div>
 	</div>
-
-
 
 	<!--- Описание компании --->
 	<div id="company-section" class="container p-md-5 rounded text-body-emphasis bg-body-secondary bg-opacity-75 shadow">
@@ -165,7 +165,6 @@
 		</div>
 	</div>
 
-
 	<!--- Дизайны упаковок --->
 	<div class="container p-md-5 mb-4 mt-5 rounded text-body-emphasis bg-body-secondary bg-opacity-75 shadow">
 		<p class="fs-3 px-0 montserrat-alternates-medium">Дизайны термоусадочной пасхальной этикетки</p>
@@ -184,4 +183,5 @@
 	{% block footer %}
 		{{ super() }}
 	{% endblock %}
+
 {% endblock %}
