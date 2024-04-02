@@ -5,9 +5,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
-}
-
-.bg-image {
+	backdrop-filter: blur(3px);
 }
 
 .img-height {
@@ -45,6 +43,9 @@ body {
     opacity: 1;
 }
 
+.about-text {
+    text-align: justify;
+}
 
 .montserrat-alternates-medium {
 	font-family: "Montserrat Alternates", sans-serif;
