@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.secret_key = 'uefksjkzxx_snbws-s234sad'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # Путь к файлу базы данных
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ug_tara.db'  # Путь к файлу базы данных
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -38,6 +38,17 @@ class User(db.Model):
     @staticmethod
     def is_authenticated():
         return True
+
+
+class Purchase(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    # Добавьте здесь необходимые поля для хранения информации о покупке, например:
+    # product_name = db.Column(db.String(100), nullable=False)
+    # price = db.Column(db.Float, nullable=False)
+    # и т.д.
+
+    user = db.relationship('User', backref=db.backref('purchases', lazy=True))
 
 
 @login_manager.user_loader
