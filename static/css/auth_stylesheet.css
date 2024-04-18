@@ -5,6 +5,16 @@ body, html {
 
 }
 
+body {
+	font-family: 'Nunito', sans-serif;
+	background-image: url("/static/images/container/background.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	backdrop-filter: blur(3px);
+}
+
 .container {
   display: flex;
   justify-content: center;

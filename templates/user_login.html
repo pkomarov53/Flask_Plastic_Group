@@ -13,23 +13,24 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container d-flex align-items-center justify-content-center py-4">
-        <main class="form-signin custom">
-            <form action="/sign-in" method="post">
-                <div class="form-floating mb-3">
-                    <input type="text" name="username" class="form-control fst-italic" id="floatingInput" placeholder="">
-                    <label for="floatingInput">Имя пользователя</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="">
-                    <label for="floatingPassword">Пароль</label>
-                </div>
-                <button class="btn btn-primary w-100 py-2 fw-bold" type="submit">Авторизация</button>
-            </form>
-
-            <div class="container-fluid d-flex justify-content-center mb-1 p-2">
-               <a href="{{ url_for('user_register') }}" class="text-dark">Регистрация</a>
+<div class="container d-flex align-items-center justify-content-center py-4">
+    <main class="form-signin custom rounded">
+        <form action="/sign-in" method="post">
+            <div class="form-floating mb-3">
+                <input type="text" name="username" class="form-control fst-italic" id="floatingInput" placeholder="">
+                <label for="floatingInput">Имя пользователя</label>
             </div>
-        </main>
-    </div>
+            <div class="form-floating mb-3">
+                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="">
+                <label for="floatingPassword">Пароль</label>
+            </div>
+            <button class="btn btn-primary w-100 py-2 fw-bold" type="submit">Авторизация</button>
+        </form>
+
+        <div class="container-fluid d-flex justify-content-center mb-1 p-2 mt-3">
+           <a href="{{ url_for('user_register') }}" class="text-dark">Регистрация</a>
+        </div>
+    </main>
+</div>
+
 {% endblock %}
