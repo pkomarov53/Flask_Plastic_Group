@@ -13,3 +13,15 @@ body {
 .navbar-custom .navbar-nav .nav-link {
 	color: #ffffff;
 }
+
+    @media (max-width: 767px) {
+      .custom-container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+      }
+    }
+
+

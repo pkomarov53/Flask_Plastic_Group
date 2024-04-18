@@ -22,7 +22,7 @@
 {% block content %}
 
 	<!--- Шапка сайта --->
-	<div class="container bg-white sticky-top md-1 mb-5 rounded border-bottom shadow">
+	<div class="custom-container container bg-white sticky-top md-1 mb-5 rounded border-bottom shadow">
 		<header class="d-flex flex-wrap justify-content-around mb-1 bg-white bg-opacity-25">
 			<a href="" class="d-flex align-items-center ms-5 link-body-emphasis text-decoration-none ">
 				<p class="montserrat-alternates-extrabold fs-1 m-0 me-5">ЮГ-ТАРА</p>
@@ -39,16 +39,16 @@
 	<!--- Основной блок --->
 
 		<!-- Заставка -->
-		<div class="container rounded text-body-emphasis bg-white bg-opacity-75 shadow md-5 rounded text-white p-md-5 mb-5">
+		<div class="custom-container container rounded text-body-emphasis bg-white bg-opacity-75 shadow md-5 rounded text-white p-md-5 mb-5">
 			<h1 class="montserrat-alternates-bold">«ЮГ-ТАРА»</h1>
-			<div class="container changing-text-container p-md-5">
+			<div class="custom-container container changing-text-container p-md-5">
 				<p class="fs-2">Более 10 лет специализируется на поставках скотча для запечатывания полипропиленовых пакетов</p>
 				<p class="fs-2">Один из крупнейших импортеров двустороннего скотча производства OKER и QICHANG</p>
 			</div>
 		</div>
 
 		<!--- Описание компании --->
-		<div id="company-section" class="container p-md-5 rounded text-body-emphasis bg-body-secondary bg-opacity-75 shadow">
+		<div id="company-section" class="custom-container container p-md-5 rounded text-body-emphasis bg-body-secondary bg-opacity-75 shadow">
 			<div class="row">
 				<div class="col-lg-6 px-0">
 					<p class="fs-3 fw-bold montserrat-alternates-black">О нашей компании</p>
@@ -57,16 +57,16 @@
 					<p class="about-text lead my-3 mx-1 fs-5 lh-base text-wrap">В разделе «Скотч» Вы можете ознакомиться с предлагаемым ассортиментом скотча и его техническими характеристиками</p>
 					<p class="about-text lead my-3 mx-1 fs-5 lh-base text-wrap">ООО «ЮГ-ТАРА» предлагает Вашему вниманию термоусадочную этикетку для украшения пасхальных яиц. Этикетка изготовлена с использованием ротогравюрной печати, что обеспечивает яркость красок и четкость линий. Дизайны пасхальной этикетки представлены в разделе «Этикетка»</p>
 				</div>
-				<div class="d-flex col-lg-6 fluid"> <img src="{{ url_for('static', filename='images/container/about_company.jpg') }}" class="img-fluid rounded shadow" alt="bg3"> </div>
+				<div class="d-flex col-lg-6"> <img src="{{ url_for('static', filename='images/container/about_company.jpg') }}" class="img-fluid rounded shadow" alt="bg3"> </div>
 			</div>
 		</div>
 
 		<!--- Виды скотча --->
-		<div class="container p-md-5 mt-5 mb-4 rounded text-body-emphasis bg-body-secondary bg-opacity-75 shadow">
+		<div class="custom-container container p-md-5 mt-5 mb-4 rounded text-body-emphasis bg-body-secondary bg-opacity-75 shadow">
 			<div class="row">
 				<!-- Sticky Оглавление слева -->
 				<div class="col-md-4">
-					<div class="container-fluid custom-sticky bg-white bg-opacity-75 border border-2 rounded shadow-sm">
+					<div class="custom-container container-fluid custom-sticky bg-white bg-opacity-75 border border-2 rounded shadow-sm">
 						<ul class="nav flex-column">
 							<li class="nav-item font-monospace text-decoration-underline"><a id="tape_type_1" class="nav-link fs-4 text-dark mb-3 mt-3" href="">Клапанный скотч</a></li>
 							<li class="nav-item font-monospace"><a id="tape_100_LPA" class="nav-link text-dark fs-5 mb-3" href="">LP-A 100</a></li>
@@ -79,7 +79,7 @@
 				</div>
 				<!-- Блоки текста справа -->
 				<div class="col-md-8 ">
-					<div class="container section">
+					<div class="custom-container container section">
 						<h3 id="tape_type_1_section" class="fw-bold fs-4">Клапанный скотч LP-A100 (PL .PR .WL. WR.) - АНАЛОГ QC103</h3>
 						<p><strong>Применение:</strong></p>
 						<ul class="list">
@@ -101,7 +101,7 @@
 							<li>хранение при температуре от 0 C до +20 С в сухом месте.</li>
 						</ul>
 					</div>
-					<div class="container section">
+					<div class="custom-container container section">
 						<h3 id="tape_LP-A150" class="fw-bold fs-4">Клапанный скотч LP-A150 (PL .PR .WL. WR.) - АНАЛОГ QC134</h3>
 						<p><strong>Применение:</strong></p>
 						<ul class="list">
@@ -123,7 +123,7 @@
 							<li>хранение при температуре от 0 C до +20 С в сухом месте.</li>
 						</ul>
 					</div>
-					<div class="container section">
+					<div class="custom-container container section">
 						<h3 id="tape_LP-A180" class="fw-bold fs-4">Клапанный скотч LP-A180 (PL .PR .WL .WR.)</h3>
 						<p><strong>Применение:</strong></p>
 						<ul class="list">
@@ -145,7 +145,7 @@
 							<li>хранение при температуре от 0 C до +20 С в сухом месте.</li>
 						</ul>
 					</div>
-					<div class="container section">
+					<div class="custom-container container section">
 						<h3 id="tape_type_2_section" class="fw-bold fs-4">Перманентный скотч HС-12 - АНАЛОГ QC120</h3>
 						<p><strong>Применение:</strong></p>
 						<ul class="list">
@@ -168,7 +168,7 @@
 		</div>
 
 		<!--- Дизайны упаковок --->
-		<div class="container p-md-5 mb-4 mt-5 rounded text-body-emphasis bg-body-secondary bg-opacity-75 shadow">
+		<div class="custom-container container p-md-5 mb-4 mt-5 rounded text-body-emphasis bg-body-secondary bg-opacity-75 shadow">
 			<p class="fs-3 px-0 montserrat-alternates-medium">Дизайны термоусадочной пасхальной этикетки</p>
 			<div class="row row-cols-7 mb-3 d-flex justify-content-between" id="designs-section">
 				<div class="col"> <img src="{{ url_for('static', filename='images/designs/design-1.png') }}" class="img-fluid img-height rounded shadow px-0" alt="design-1"> </div>
