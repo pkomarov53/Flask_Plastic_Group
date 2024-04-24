@@ -109,6 +109,7 @@ def user_register():
 @login_required
 def dashboard():
     user_info = User_Information.query.filter_by(user_id=current_user.id).first()
+    user_orders = Purchase.query.filter_by(user_id=current_user.id).all()
     if request.method == 'POST':
         name = request.form['name']
         address = request.form['address']
@@ -123,7 +124,7 @@ def dashboard():
         db.session.commit()
         flash('Информация успешно сохранена', 'success')
         return redirect(url_for('dashboard'))
-    return render_template('user_panel.html', user_info=user_info, title='Личный кабинет')
+    return render_template('user_panel.html', user_info=user_info, user_orders=user_orders, title='Личный кабинет')
 
 
 # Рендер страницы с калькулятором цены заказа
