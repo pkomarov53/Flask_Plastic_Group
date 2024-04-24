@@ -9,11 +9,12 @@
     {%- block auth_imports %}
         <link href="{{ url_for('static', filename='css/auth_stylesheet.css') }}" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='js/dynamic-containers.js') }}"></script>
     {%- endblock %}
 {% endblock %}
 
 {% block content %}
-<div class="container d-flex align-items-center justify-content-center py-4">
+<div class="custom-container container d-flex align-items-center justify-content-center py-4">
     <main class="form-signin custom rounded">
         <form action="/sign-in" method="post">
             <div class="form-floating mb-3">

@@ -48,9 +48,18 @@ class Purchase(db.Model):
     order_date = db.Column(db.Date)
 
 
+# Дополнительная информация о пользователе
+class User_Information(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    name = db.Column(db.String(15))
+    phone = db.Column(db.Text(30))
+    address = db.Column(db.String(45))
+
+
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return db.session.get(User, int(user_id))
 
 
 # Рендер главной страницы
@@ -95,11 +104,26 @@ def user_register():
     return render_template('user_register.html')
 
 
-# Рендер дэшборда (возможно админки)
-@app.route('/dashboard')
+# Рендер дэшборда
+@app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
-    return render_template('user_panel.html', title='Личный кабинет', username=current_user.username)
+    user_info = User_Information.query.filter_by(user_id=current_user.id).first()
+    if request.method == 'POST':
+        name = request.form['name']
+        address = request.form['address']
+        phone = request.form['phone']
+        if user_info:
+            user_info.name = name
+            user_info.address = address
+            user_info.phone = phone
+        else:
+            user_info = User_Information(user_id=current_user.id, name=name, address=address, phone=phone)
+            db.session.add(user_info)
+        db.session.commit()
+        flash('Информация успешно сохранена', 'success')
+        return redirect(url_for('dashboard'))
+    return render_template('user_panel.html', user_info=user_info, title='Личный кабинет')
 
 
 # Рендер страницы с калькулятором цены заказа
