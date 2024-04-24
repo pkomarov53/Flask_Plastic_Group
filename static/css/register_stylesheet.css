@@ -39,3 +39,10 @@ body, html {
   }
 }
 
+@media only screen and (max-width: 768px) {
+    .form-signin {
+        /* Define your styles for mobile devices here */
+        font-size: 18px;
+        /* Example: increasing font size */
+    }
+}

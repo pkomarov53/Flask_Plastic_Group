@@ -149,4 +149,4 @@ if __name__ == '__main__':
         print("Database tables created successfully.")
     except Exception as e:
         print("An error occurred while creating database tables:", e)
-    app.run(debug=False)
+    app.run(debug=True)

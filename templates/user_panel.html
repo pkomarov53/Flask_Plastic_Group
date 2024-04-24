@@ -10,12 +10,9 @@
 {%- endblock %}
 
 {%- block user_imports %}
-<link href="{{ url_for('static', filename='css/index_stylesheet.css') }}" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{{ url_for('static', filename='js/userPanel_scripts.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <link href="{{ url_for('static', filename='css/index_stylesheet.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/userPanel_scripts.js') }}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {%- endblock %}
 
 {% endblock %}
@@ -72,20 +69,20 @@
 
         <!--- Блок истории заказов пользователя --->
         {% block order_history %}
-        <div class="custom-container container col-md-6 col-12 fs-6">
+        <div class="custom-container container col-md-6 col-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="text-center">История ваших заказов</h3>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table px-6">
                         <thead>
                             <tr>
-                                <th>№ заказа</th>
+                                <th>№</th>
                                 <th>Продукция</th>
                                 <th>Цена</th>
-                                <th>Дата заказа</th>
-                                <th>Статус заказа</th>
+                                <th>Дата</th>
+                                <th>Статус</th>
                             </tr>
                         </thead>
                         <tbody>
