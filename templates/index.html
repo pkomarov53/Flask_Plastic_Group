@@ -23,7 +23,7 @@
 <!--- Контент сайта --->
 {% block content %}
 
-<!--- Шапка сайта --->
+	<!--- Шапка сайта --->
 	<div class="custom-container container bg-white sticky-top md-1 mb-5 rounded border-bottom shadow">
 		<header class="d-flex flex-wrap justify-content-around mb-1 bg-white bg-opacity-25">
 			<a href="" class="d-flex align-items-center ms-5 link-body-emphasis text-decoration-none ">
@@ -182,8 +182,49 @@
 	</div>
 
 	<!--- Подвал сайта --->
-	{% block footer %}
-		{{ super() }}
-	{% endblock %}
+	<div class="custom-container container sticky-bot py-3 mt-5 rounded bg-white shadow">
+		<footer class="d-flex flex-wrap justify-content-between" id="contacts-section">
+			<div class="custom-col col-md-3">
+				<p class="montserrat-alternates-extrabold fs-2 text-body-secondary mb-0">ЮГ-ТАРА</p>
+				<p class="text-body-secondary mb-0">&copy; 2009–2024</p>
+			</div>
+			<ul class="custom-col nav col-md-2">
+				<li class="nav-item">
+					<p class="nav-link text-body-secondary mb-1">uk-tara@yandex.ru</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link text-body-secondary mb-1">141009, <br>Московская область, <br> Мытищи, Колонцова 5</p>
+				</li>
+			</ul>
+			<ul class="custom-col nav col-md-2">
+				<li class="nav-item">
+					<p class="nav-link text-body-secondary mb-1">8 (495) 588-79-81</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link text-body-secondary mb-1">8 (903) 176-70-22</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link text-body-secondary mb-1">8 (903) 287-18-41</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link text-body-secondary mb-1">8 (903) 178-16-93</p>
+				</li>
+			</ul>
+			<ul class="custom-col nav col-md-2">
+				<li class="nav-item">
+					<p class="nav-link text-body-secondary fs-6 mb-1">ОГРН 1095029000175</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link text-body-secondary text-center fs-6 mb-1">ИНН 5029122650</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link text-body-secondary text-center fs-6 mb-1">КПП 502901001</p>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link text-body-secondary fs-6 mb-1">ОКПО 88883256</p>
+				</li>
+			</ul>
+		</footer>
+	</div>
 
 {% endblock %}

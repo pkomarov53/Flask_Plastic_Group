@@ -6,28 +6,34 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     {%- endblock %}
 
-    {%- block register_imports %}
-        <link href="{{ url_for('static', filename='css/register_stylesheet.css') }}" rel="stylesheet">
+    {%- block auth_imports %}
+        <link href="{{ url_for('static', filename='css/auth_stylesheet.css') }}" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     {%- endblock %}
 {% endblock %}
 
 {% block content %}
-    <div class="container d-flex align-items-center justify-content-center py-4">
-        <main class="form-register custom">
-            <form action="/register" method="post">
-                <div class="form-floating mb-3">
-                    <input type="text" name="username" class="form-control fst-italic" id="floatingInput" placeholder="">
-                    <label for="floatingInput">Имя пользователя</label>
+        <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card my-3">
+                    <div class="card-body">
+                        <form action="/register" method="post">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Имя пользователя</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Пароль</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Зарегестрироваться</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-floating mb-3">
-                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="">
-                    <label for="floatingPassword">Пароль</label>
-                </div>
-                <button class="btn btn-primary w-100 py-2 fw-bold" type="submit">Регистрация</button>
-            </form>
-            <div class="container-fluid d-flex justify-content-center mb-1">
             </div>
-        </main>
+        </div>
     </div>
 {% endblock %}

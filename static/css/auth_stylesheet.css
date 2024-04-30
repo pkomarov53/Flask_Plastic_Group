@@ -1,38 +1,43 @@
-/* Основные стили для контейнера */
-body, html {
-  height: 100%;
-  margin: 0;
-
-}
-
 body {
-	font-family: 'Nunito', sans-serif;
-	background-image: url("/static/images/container/background.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
-	backdrop-filter: blur(3px);
+    font-family: 'Nunito', sans-serif;
+    background-image: url("/static/images/container/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    backdrop-filter: blur(3px);
+    margin: 0; /* Убираем стандартные отступы */
+    height: 100vh; /* Устанавливаем высоту на 100% видимой части экрана */
+    display: flex; /* Используем Flexbox */
+    align-items: center; /* Центрируем содержимое по вертикали */
+    justify-content: center; /* Центрируем содержимое по горизонтали */
 }
 
+.card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тень для карточки */
+    border-radius: 10px; /* Скругленные углы карточки */
+}
+
+/* Базовые стили для .container-xl */
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: 'Nunito', sans-serif;
+    min-width: 700px !important;
+    max-width: 700px; /* Установим максимальную ширину контейнера */
+    width: 100%; /* Контейнер занимает всю ширину до максимума */
+    transition: transform 0.3s ease-in-out; /* Плавный переход эффекта масштабирования */
+    transform-origin: center center;
 }
 
-.form-signin {
-  max-width: 400px; /* Желаемая максимальная ширина формы */
-  width: 100%; /* Чтобы форма занимала всю доступную ширину, но не больше максимальной */
-  padding: 20px; /* Добавим отступы для красоты */
-  box-sizing: border-box; /* Чтобы отступы не увеличивали общую ширину формы */
-  background-color: #ffffff; /* Цвет фона формы */
-}
+/* Медиазапрос для устройств с максимальной шириной 980px */
+@media (max-width: 980px) {
+    .container {
+        min-width: 100% !important; /* Контейнер занимает 100% ширины экрана */
+        max-width: 100%; /* Отменяем предыдущее ограничение ширины */
+    }
+    html, body {
+        height: auto; /* Сброс фиксированной высоты на автоматическую */
+        min-height: 100vh; /* Минимальная высота на 100% видимой части экрана */
+    }
+    .form-control {
 
-.mobile-form {
-    max-width: 100%; /* Устанавливаем максимальную ширину формы */
-    padding: 200px; /* Добавляем отступы */
+    }
 }
-

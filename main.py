@@ -124,7 +124,8 @@ def dashboard():
         db.session.commit()
         flash('Информация успешно сохранена', 'success')
         return redirect(url_for('dashboard'))
-    return render_template('user_panel.html', user_info=user_info, user_orders=user_orders, title='Личный кабинет')
+    return render_template('user_panel.html', user_info=user_info, user_orders=user_orders,
+                           title='Личный кабинет')
 
 
 # Рендер страницы с калькулятором цены заказа
