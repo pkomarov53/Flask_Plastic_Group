@@ -40,12 +40,18 @@ class User(db.Model):
         return True
 
 
+class Product(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    product_name = db.Column(db.String(100))
+
+
 class Purchase(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     product_name = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Float, nullable=False)
     order_date = db.Column(db.Date)
+    order_status = db.Column(db.String(10))
 
 
 # Дополнительная информация о пользователе
@@ -101,7 +107,7 @@ def user_register():
             db.session.commit()
             flash('Успешная регистрация! Теперь вы можете войти.', 'success')
             return redirect(url_for('user_auth'))
-    return render_template('user_register.html')
+    return render_template('user_register.html', title='Регистрация')
 
 
 # Рендер дэшборда

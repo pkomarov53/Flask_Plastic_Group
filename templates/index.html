@@ -12,7 +12,6 @@
 
 	{%- block index_imports %}
 	<link href="{{ url_for('static', filename='css/index_stylesheet.css') }}" rel="stylesheet">
-	<link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="{{ url_for('static', filename='js/index_scripts.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/dynamic-containers.js') }}"></script>
@@ -69,9 +68,9 @@
 				<div class="custom-container container-fluid custom-sticky bg-white bg-opacity-75 border border-2 rounded shadow-sm">
 					<ul class="nav flex-column">
 						<li class="nav-item font-monospace text-decoration-underline"><a id="tape_type_1" class="nav-link fs-4 text-dark mb-3 mt-3" href="">Клапанный скотч</a></li>
-						<li class="nav-item font-monospace"><a id="tape_100_LPA" class="nav-link text-dark fs-5 mb-3" href="">LP-A 100</a></li>
-						<li class="nav-item font-monospace"><a id="tape_150_LPA" class="nav-link text-dark fs-5 mb-3" href="">LP-A 150</a></li>
-						<li class="nav-item font-monospace"><a id="tape_180_LPA" class="nav-link text-dark fs-5 mb-3" href="">LP-A 180</a></li>
+						<li class="nav-item font-monospace"><a id="tape_100_LPA" class="nav-link text-dark fs-5 mb-3" href="">LP-A100</a></li>
+						<li class="nav-item font-monospace"><a id="tape_150_LPA" class="nav-link text-dark fs-5 mb-3" href="">LP-A150</a></li>
+						<li class="nav-item font-monospace"><a id="tape_180_LPA" class="nav-link text-dark fs-5 mb-3" href="">LP-A180</a></li>
 						<li class="nav-item font-monospace text-decoration-underline"><a id="tape_type_2" class="nav-link fs-4 text-dark mb-3" href="">Пермаментный скотч</a></li>
 						<li class="nav-item font-monospace"><a id="tape_12_HC" class="nav-link text-dark fs-5 mb-3" href="#section4 text-dark">HC-12</a></li>
 					</ul>
@@ -80,7 +79,7 @@
 			<!-- Блоки текста справа -->
 			<div class="col-md-8 ">
 				<div class="custom-container container section">
-					<h3 id="tape_type_1_section" class="fw-bold fs-4">Клапанный скотч LP-A100 (PL .PR .WL. WR.) - АНАЛОГ QC103</h3>
+					<h3 id="tape_type_1_section" class="fw-bold fs-2">Клапанный скотч LP-A100</h3>
 					<p><strong>Применение:</strong></p>
 					<ul class="list">
 						<li>для запечатывания полиэтиленовых пакетов типа OPP или РР.</li>
@@ -91,10 +90,8 @@
 					<ul class="list">
 						<li>Основной материал: ПЭ пленка с силиконовым покрытием: HDPE 9mm</li>
 						<li>ширина покрытия клеевого слоя: PET 4.5mm</li>
-						<li>ширина клеевого слоя на стороне A/B: 3mm/4.5mm</li>
 						<li>общая толщина: 63-68 мкм</li>
 						<li>адгезия: 13g/mm</li>
-						<li>адгезив: акрил</li>
 						<li>цвет пленки: прозрачный или с печатью</li>
 						<li>намотка: правая или левая</li>
 						<li>упаковка: 20 рулонов по 1000м</li>
@@ -102,7 +99,7 @@
 					</ul>
 				</div>
 				<div class="custom-container container section">
-					<h3 id="tape_LP-A150" class="fw-bold fs-4">Клапанный скотч LP-A150 (PL .PR .WL. WR.) - АНАЛОГ QC134</h3>
+					<h3 id="tape_LP-A150" class="fw-bold fs-2">Клапанный скотч LP-A150</h3>
 					<p><strong>Применение:</strong></p>
 					<ul class="list">
 						<li>для запечатывания полиэтиленовых пакетов типа OPP или РР ,PE (материал).</li>
@@ -113,10 +110,8 @@
 					<ul class="list">
 						<li>Основной материал: ПЭ пленка с силиконовым покрытием: HDPE 13 мм</li>
 						<li>ширина покрытия клеевого слоя: PET 6mm</li>
-						<li>ширина клеевого слоя на стороне A/B: 4mm/6mm</li>
 						<li>общая толщина: 73 мкм</li>
 						<li>адгезия: 17g/mm</li>
-						<li>адгезив: акрил</li>
 						<li>цвет пленки: прозрачный или с печатью</li>
 						<li>намотка: правая или левая</li>
 						<li>упаковка: 20 рулонов по 1000м</li>
@@ -124,7 +119,7 @@
 					</ul>
 				</div>
 				<div class="custom-container container section">
-					<h3 id="tape_LP-A180" class="fw-bold fs-4">Клапанный скотч LP-A180 (PL .PR .WL .WR.)</h3>
+					<h3 id="tape_LP-A180" class="fw-bold fs-2">Клапанный скотч LP-A180</h3>
 					<p><strong>Применение:</strong></p>
 					<ul class="list">
 						<li>для запечатывания полиэтиленовых пакетов типа OPP или РР ,PE (материал).</li>
@@ -135,18 +130,15 @@
 					<ul class="list">
 						<li>Основной материал: ПЭ пленка с силиконовым покрытием: HDPE 17,5 mm</li>
 						<li>ширина покрытия клеевого слоя: PET 10mm</li>
-						<li>ширина клеевого слоя на стороне A/B: 7mm/10mm</li>
 						<li>общая толщина: 73 мкм</li>
 						<li>адгезия: 17g/mm</li>
-						<li>адгезив: акрил</li>
 						<li>цвет пленки: прозрачный или с печатью</li>
-						<li>намотка: правая или левая</li>
 						<li>упаковка: 10 рулонов по 1000м</li>
 						<li>хранение при температуре от 0 C до +20 С в сухом месте.</li>
 					</ul>
 				</div>
 				<div class="custom-container container section">
-					<h3 id="tape_type_2_section" class="fw-bold fs-4">Перманентный скотч HС-12 - АНАЛОГ QC120</h3>
+					<h3 id="tape_type_2_section" class="fw-bold fs-2">Перманентный скотч HС-12</h3>
 					<p><strong>Применение:</strong></p>
 					<ul class="list">
 						<li>Неядовитый, безопасный, холодоустойчивый. Не хранить/использовать при высокой температуре.</li>
