@@ -25,6 +25,8 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     password_hash = db.Column(db.String(100), nullable=False)
+    is_admin = db.Column(db.Boolean, default=False)  # Добавлено поле для роли администратора
+    purchases = db.relationship('Purchase', backref='user', lazy=True)  # Связь с покупками
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -44,14 +46,6 @@ class User(db.Model):
         return True
 
 
-# Продукция компании
-class Product(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    product_name = db.Column(db.String(100), nullable=False)
-    product_price = db.Column(db.Integer, nullable=False)
-
-
-# Покупки пользователя
 class Purchase(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -59,6 +53,13 @@ class Purchase(db.Model):
     price = db.Column(db.Float, nullable=False)
     order_date = db.Column(db.Date, default=datetime.utcnow)
     order_status = db.Column(db.String(10), nullable=False, default='Pending')
+
+
+# Продукция компании
+class Product(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    product_name = db.Column(db.String(100), nullable=False)
+    product_price = db.Column(db.Integer, nullable=False)
 
 
 # Дополнительная информация о пользователе
@@ -150,6 +151,29 @@ def price_calc():
         {'name': 'Другие регионы', 'cost': 20000}
     ]
     return render_template('price_calculator.html', title='Расчет заказа', products=products, regions=regions)
+
+
+@app.route('/admin', methods=['GET', 'POST'])
+@login_required
+def admin_panel():
+    if not current_user.is_admin:
+        flash('Доступ запрещен. Только для администраторов.', 'danger')
+        return redirect(url_for('index'))
+
+    if request.method == 'POST':
+        order_id = request.form.get('order_id')
+        new_status = request.form.get('status')
+        order = Purchase.query.get(order_id)
+        if order:
+            order.order_status = new_status
+            db.session.commit()
+            flash('Статус заказа обновлен.', 'success')
+        else:
+            flash('Заказ не найден.', 'danger')
+
+    orders = Purchase.query.all()
+    return render_template('admin_panel.html', title='Админ-панель', orders=orders)
+
 
 
 # Рендер страницы оплаты

@@ -53,13 +53,12 @@ body {
     text-decoration: underline;
 }
 
-@media (max-width: 767px) {
-    .custom-container {
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-        width: 100%;
+@media (max-width: 768px) {
+    .table th, .table td {
+        font-size: 0.875rem; /* Уменьшение размера текста для маленьких экранов */
+    }
+    .card-title {
+        font-size: 1.25rem; /* Уменьшение размера заголовка */
     }
 }
 
