@@ -1,11 +1,15 @@
+import json
+
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
+# Конфигурация Flask-приложения
 app = Flask(__name__)
 app.secret_key = 'uefksjkzxx_snbws-s234sad'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ug_tara.db'  # Путь к файлу базы данных
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ug_tara.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -40,18 +44,21 @@ class User(db.Model):
         return True
 
 
+# Продукция компании
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    product_name = db.Column(db.String(100))
+    product_name = db.Column(db.String(100), nullable=False)
+    product_price = db.Column(db.Integer, nullable=False)
 
 
+# Покупки пользователя
 class Purchase(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     product_name = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Float, nullable=False)
-    order_date = db.Column(db.Date)
-    order_status = db.Column(db.String(10))
+    order_date = db.Column(db.Date, default=datetime.utcnow)
+    order_status = db.Column(db.String(10), nullable=False, default='Pending')
 
 
 # Дополнительная информация о пользователе
@@ -59,7 +66,7 @@ class User_Information(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     name = db.Column(db.String(15))
-    phone = db.Column(db.Text(30))
+    phone = db.Column(db.String(30))
     address = db.Column(db.String(45))
 
 
@@ -130,14 +137,61 @@ def dashboard():
         db.session.commit()
         flash('Информация успешно сохранена', 'success')
         return redirect(url_for('dashboard'))
-    return render_template('user_panel.html', user_info=user_info, user_orders=user_orders,
-                           title='Личный кабинет')
+    return render_template('user_panel.html', user_info=user_info, user_orders=user_orders, title='Личный кабинет')
 
 
 # Рендер страницы с калькулятором цены заказа
 @app.route('/price-calculator')
 def price_calc():
-    return render_template('price_calculator.html')
+    products = Product.query.all()
+    regions = [
+        {'name': 'Москва', 'cost': 5000},
+        {'name': 'МО', 'cost': 10000},
+        {'name': 'Другие регионы', 'cost': 20000}
+    ]
+    return render_template('price_calculator.html', title='Расчет заказа', products=products, regions=regions)
+
+
+# Рендер страницы оплаты
+@app.route('/checkout', methods=['GET', 'POST'])
+@login_required
+def checkout():
+    if request.method == 'POST':
+        cart_data = request.form.get('cart_data')
+        return render_template('checkout.html', title='Оплата', cart_data=cart_data)
+    return redirect(url_for('price_calc'))
+
+
+@app.route('/process_payment', methods=['POST'])
+@login_required
+def process_payment():
+    card_number = request.form['card_number']
+    card_expiry = request.form['card_expiry']
+    card_cvc = request.form['card_cvc']
+    cart_data = request.form['cart_data']
+    cart_items = json.loads(cart_data)
+
+    # Здесь должна быть логика обработки платежа
+    # Например, интеграция с платежным шлюзом
+
+    for item in cart_items:
+        product_name = item['product']
+        quantity = item['quantity']
+        total = item['total']
+        region = item['region']
+        # Сохранение информации о заказе в базе данных
+        new_purchase = Purchase(
+            user_id=current_user.id,
+            product_name=product_name,
+            price=total,
+            order_status='В обработке',
+            order_date=datetime.utcnow()
+        )
+        db.session.add(new_purchase)
+
+    db.session.commit()
+    flash('Оплата прошла успешно. Спасибо за ваш заказ!', 'success')
+    return redirect(url_for('dashboard'))
 
 
 # Выход пользователя

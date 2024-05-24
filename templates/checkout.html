@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 500px;
+            margin-top: 50px;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Оплата заказа</h2>
+        <form method="POST" action="{{ url_for('process_payment') }}">
+            <div class="mb-3">
+                <label for="card_number" class="form-label">Номер карты</label>
+                <input type="text" class="form-control" id="card_number" name="card_number" required>
+            </div>
+            <div class="mb-3">
+                <label for="card_expiry" class="form-label">Срок действия карты (MM/YY)</label>
+                <input type="text" class="form-control" id="card_expiry" name="card_expiry" required>
+            </div>
+            <div class="mb-3">
+                <label for="card_cvc" class="form-label">CVC</label>
+                <input type="text" class="form-control" id="card_cvc" name="card_cvc" required>
+            </div>
+            <input type="hidden" name="cart_data" value="{{ cart_data }}">
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Оплатить</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kaVvHr6POnGxQQ9/Wly7bn1Xb1hVRLZPb/PJJ2DbxtiwKr4f02mlr2oUAYF+V68+" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+    <script>
+        new Cleave('#card_number', {
+            creditCard: true,
+            onCreditCardTypeChanged: function (type) {
+                // update UI ...
+            }
+        });
+
+        new Cleave('#card_expiry', {
+            date: true,
+            datePattern: ['m', 'y']
+        });
+
+        new Cleave('#card_cvc', {
+            blocks: [3],
+            numericOnly: true
+        });
+    </script>
+</body>
+</html>
