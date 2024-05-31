@@ -142,7 +142,7 @@ def dashboard():
 
 
 # Рендер страницы с калькулятором цены заказа
-@app.route('/price-calculator')
+@app.route('/calculator')
 def price_calc():
     products = Product.query.all()
     regions = [
@@ -156,10 +156,6 @@ def price_calc():
 @app.route('/admin', methods=['GET', 'POST'])
 @login_required
 def admin_panel():
-    if not current_user.is_admin:
-        flash('Доступ запрещен. Только для администраторов.', 'danger')
-        return redirect(url_for('index'))
-
     if request.method == 'POST':
         order_id = request.form.get('order_id')
         new_status = request.form.get('status')
@@ -173,7 +169,6 @@ def admin_panel():
 
     orders = Purchase.query.all()
     return render_template('admin_panel.html', title='Админ-панель', orders=orders)
-
 
 
 # Рендер страницы оплаты
@@ -234,4 +229,4 @@ if __name__ == '__main__':
         print("Database tables created successfully.")
     except Exception as e:
         print("An error occurred while creating database tables:", e)
-    app.run(debug=True)
+    app.run(debug=False)
