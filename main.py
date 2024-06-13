@@ -143,6 +143,7 @@ def dashboard():
 
 # Рендер страницы с калькулятором цены заказа
 @app.route('/calculator')
+@login_required
 def price_calc():
     products = Product.query.all()
     regions = [
@@ -173,12 +174,18 @@ def admin_panel():
 
 # Рендер страницы оплаты
 @app.route('/checkout', methods=['GET', 'POST'])
-@login_required
 def checkout():
     if request.method == 'POST':
-        cart_data = request.form.get('cart_data')
-        return render_template('checkout.html', title='Оплата', cart_data=cart_data)
-    return redirect(url_for('price_calc'))
+        # Получение данных корзины из формы
+        cart_data = request.form['cart_data']
+        cart_items = json.loads(cart_data)
+        total_order_cost = sum(item['total'] for item in cart_items)
+
+        return render_template('checkout.html', title='Оплата заказа', cart_data=cart_data,
+                               total_order_cost=total_order_cost)
+
+    # Если метод GET, просто рендерим шаблон без данных
+    return render_template('checkout.html', title='Оплата заказа')
 
 
 @app.route('/process_payment', methods=['POST'])
@@ -190,14 +197,14 @@ def process_payment():
     cart_data = request.form['cart_data']
     cart_items = json.loads(cart_data)
 
-    # Здесь должна быть логика обработки платежа
-    # Например, интеграция с платежным шлюзом
+    total_order_cost = sum(item['total'] for item in cart_items)  # Рассчитываем общую стоимость заказа
 
     for item in cart_items:
         product_name = item['product']
         quantity = item['quantity']
         total = item['total']
         region = item['region']
+
         # Сохранение информации о заказе в базе данных
         new_purchase = Purchase(
             user_id=current_user.id,
@@ -209,7 +216,9 @@ def process_payment():
         db.session.add(new_purchase)
 
     db.session.commit()
-    flash('Оплата прошла успешно. Спасибо за ваш заказ!', 'success')
+
+    flash(f'Оплата прошла успешно. Спасибо за ваш заказ! Общая стоимость заказа: {total_order_cost:.2f} руб.',
+          'success')
     return redirect(url_for('dashboard'))
 
 
@@ -229,4 +238,4 @@ if __name__ == '__main__':
         print("Database tables created successfully.")
     except Exception as e:
         print("An error occurred while creating database tables:", e)
-    app.run(debug=False)
+    app.run(debug=False, port=5008)

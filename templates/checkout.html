@@ -3,7 +3,6 @@
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
-
 {% endblock %}
 
 {% block imports %}
@@ -18,7 +17,10 @@
                 Оплата заказа
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ url_for('process_payment') }}">
+                <div class="mb-3 text-center">
+                    <h5>Общая стоимость заказа: {{ total_order_cost }} руб.</h5>
+                </div>
+                <form id="paymentForm" method="POST" action="{{ url_for('process_payment') }}">
                     <div class="mb-3">
                         <label for="card_number" class="form-label">Номер карты</label>
                         <div class="input-group">

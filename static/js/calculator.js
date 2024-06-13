@@ -3,10 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartTotalContainer = document.getElementById('cart-total');
     const cartDataInput = document.getElementById('cart-data');
+    const maxCartItems = 20;
+    const checkoutButton = document.getElementById('checkout');
 
     function updateCartTable() {
         if (cartItems.length === 0) {
             cartItemsContainer.innerHTML = '<tr><td colspan="4" class="text-center">Ваша корзина пуста</td></tr>';
+            disableCheckoutButton(true); // Disable checkout button when cart is empty
         } else {
             cartItemsContainer.innerHTML = cartItems.map(item => `
                 <tr>
@@ -16,8 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     <td>${item.total.toFixed(2)} руб.</td>
                 </tr>
             `).join('');
+            disableCheckoutButton(false); // Enable checkout button when cart has items
         }
         updateCartTotal();
+    }
+
+    function disableCheckoutButton(disable) {
+        checkoutButton.disabled = disable;
     }
 
     function updateCartTotal() {
@@ -26,6 +34,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function addToCart(productText, quantity, regionText, total) {
+        const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+        if (totalQuantity + quantity > maxCartItems) {
+            alert(`Вы не можете добавить в корзину больше ${maxCartItems} товаров.`);
+            return;
+        }
+
         const existingItem = cartItems.find(item => item.product === productText && item.region === regionText);
 
         if (existingItem) {
@@ -58,13 +73,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const total = (productPrice * quantity) + regionCost;
         addToCart(productText, quantity, regionText, total);
-
-        document.getElementById('result').innerText = `Стоимость товаров: ${total.toFixed(2)} руб.`;
     });
 
     document.getElementById('checkout-form').addEventListener('submit', function (event) {
-        const cartData = JSON.stringify(cartItems);
-        cartDataInput.value = cartData;
+        if (cartItems.length === 0) {
+            event.preventDefault();
+            alert("Нельзя перейти к оплате, так как ваша корзина пуста.");
+        } else {
+            const cartData = JSON.stringify(cartItems);
+            cartDataInput.value = cartData;
+        }
     });
 
     new Cleave('#phone', {

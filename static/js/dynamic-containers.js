@@ -8,10 +8,8 @@ $(document).ready(function() {
         }
     }
 
-    // Вызываем функцию при загрузке страницы
     toggleContainerClass();
 
-    // Вызываем функцию при изменении размера окна
     $(window).resize(function() {
         toggleContainerClass();
     });
@@ -27,10 +25,8 @@ $(document).ready(function() {
         }
     }
 
-    // Вызываем функцию при загрузке страницы
     toggleContainerClass();
 
-    // Вызываем функцию при изменении размера окна
     $(window).resize(function() {
         toggleContainerClass();
     });
