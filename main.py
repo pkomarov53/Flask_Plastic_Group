@@ -54,6 +54,10 @@ class Purchase(db.Model):
     order_date = db.Column(db.Date, default=datetime.utcnow)
     order_status = db.Column(db.String(10), nullable=False, default='Pending')
 
+    @property
+    def formatted_date(self):
+        return self.order_date.strftime("%d-%m-%Y")
+
 
 # Продукция компании
 class Product(db.Model):
@@ -93,7 +97,7 @@ def user_auth():
         if user and user.check_password(password):
             login_user(user)
             flash('Успешный вход!', 'success')
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('index'))
         else:
             flash('Неверное имя пользователя или пароль', 'error')
     return render_template('user_login.html', title='Войти')

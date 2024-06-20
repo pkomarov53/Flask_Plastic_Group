@@ -28,15 +28,6 @@
                         </form>
                     </div>
                 </div>
-                {% with messages = get_flashed_messages(with_categories=True) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }} mt-3" role="alert">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
             </div>
         </div>
     </div>
